@@ -1,32 +1,38 @@
 'use client';
-import React, { FormEvent } from 'react';
-import axios from 'axios';
+import React, { FormEvent} from 'react';
+
 
 import { useState } from 'react';
 const Register = () => {
 
-    const [username, setUsername] = useState(null);
+    const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
 
     function setUser(e: any): void {
-        setUsername(e.target.value);
+        setEmail(e.target.value);
     }
     function setPass(e: any):void {
-        setPass(e.target.value);
+        setPassword(e.target.value);
     }
 
-    async function sumbitFunc(e:any) {
+    async function sumbitFunc(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
-
-        const resp = await fetch('http://localhost:5000/register',{
-            method:"POST",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: JSON.stringify({
-                username, password
-            }),
-        });
+        
+        try {
+            const resp = await fetch('http://localhost:5000/register',{
+                method:"POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    email, password
+                }),
+            });
+            alert("You are registered");
+        } catch(e) {
+            console.log(e);
+        }
+        
 
     };
 
@@ -40,7 +46,7 @@ const Register = () => {
                 <div><button type="submit">Submit</button></div>
                 
             </form>
-            <div><h1>hej</h1></div>
+            
             
         </main>
     )
