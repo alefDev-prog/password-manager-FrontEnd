@@ -38,13 +38,12 @@ const Register = () => {
 
 
     return (
-        <main id="register-main">
-            <h1>Register</h1>
-            <form onSubmit={sumbitFunc}>
-                <input type="text" name="username" onChange={setUser}/>
+        <main className="auth-wrapper">
+            <form onSubmit={sumbitFunc} className="auth-form">
+                <h1 className="auth-header">Register</h1>
+                <input type="text" name="username" onChange={setUser} placeholder='email'/>
                 <input type="password" name="password" placeholder="password" onChange={setPass}/>
-                <div><button type="submit">Submit</button></div>
-                
+                <button type="submit">Submit</button>
             </form>
             
             

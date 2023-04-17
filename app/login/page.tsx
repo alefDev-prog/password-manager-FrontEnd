@@ -23,6 +23,7 @@ const Login = () => {
         try {
             const resp = await fetch('http://localhost:5000/login',{
                 method:"POST",
+                credentials:"include",
                 headers: {
                     "Content-type": "application/json",
                 },
@@ -35,17 +36,25 @@ const Login = () => {
         }
     }
 
+    async function testAuth() {
+        const resp = await fetch("http://localhost:5000/data", {
+            method:"GET",
+            credentials: "include"
+        })
+
+        console.log(resp);
+    }
+
 
     return (
-        <main id="login-main">
-            <h1>Login</h1>
-            <form onSubmit={submitFunc}>
-                <input type="text" name="username" onChange={setUser}/>
+        <main className="auth-wrapper">
+            <form onSubmit={submitFunc} className="auth-form">
+                <h1 className="auth-header">Login</h1>
+                <input type="text" name="username" onChange={setUser} placeholder="email"/>
                 <input type="password" name="password" placeholder="password" onChange={setPass}/>
-                <div><button type="submit">Submit</button></div>
+                <button type="submit">Submit</button>
             </form>
-            
-            
+            <button onClick={testAuth}>TEST</button>
         </main>
     )
 }
