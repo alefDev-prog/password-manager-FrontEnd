@@ -45,6 +45,15 @@ const Login = () => {
         console.log(resp);
     }
 
+    async function testLogOut() {
+        const resp = await fetch("http://localhost:5000/logout", {
+            method:"POST",
+            credentials: "include"
+        })
+
+        console.log(resp);
+    }
+
 
     return (
         <main className="auth-wrapper">
@@ -55,6 +64,7 @@ const Login = () => {
                 <button type="submit">Submit</button>
             </form>
             <button onClick={testAuth}>TEST</button>
+            <button onClick={testLogOut}>LOGOUT</button>
         </main>
     )
 }
