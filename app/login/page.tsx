@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { setGlobalState, useGlobalState } from "../globalState/globalState";
 
 
 const Login = () => {
@@ -20,6 +21,7 @@ const Login = () => {
     async function submitFunc(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
         
+
        try {
             const resp = await fetch('http://localhost:5000/login',{
                 method:"POST",
@@ -31,9 +33,13 @@ const Login = () => {
                     email, password
                 }),
             });
+            const id = (await resp.json());
 
             if(resp.status == 202) {
                 sessionStorage.setItem('loggedIn', 'true');
+                sessionStorage.setItem('userId', id);
+        
+
             }
         } catch(e) {
             console.log(e);
@@ -77,7 +83,7 @@ const Login = () => {
                 <button type="submit">Submit</button>
             </form>
             <button onClick={testAuth}>TEST</button>
-            <button onClick={testLogOut}>LOGOUT</button>
+            <button onClick={testLogOut}>{useGlobalState("userId")[0]}</button>
         </main>
     )
 }
@@ -86,13 +92,3 @@ export default Login;
 
 
 
-
-/*
-
-app.post('/logout', (req, res) => {
-    req.session.destroy(err => {if (err) console.log(err)});
-    res.clearCookie(`${SESSION_NAME}`);
-    res.json("cleared cookie");
-})
-
-*/

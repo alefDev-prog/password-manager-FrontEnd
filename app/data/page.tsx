@@ -1,7 +1,7 @@
 "use client";
 
 import { redirect } from 'next/navigation';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useEffect } from 'react';
 
 import './style/page.scss';
 
@@ -9,13 +9,43 @@ const Data = () => {
 
 
     const [showEdit, setShowEdit] = useState(false);
+    const [info, setInfo] = useState(null);
+    
+
+    useEffect(()=> {
+        const id = sessionStorage.getItem('userId');
+        typeof id == "string" && getInfo(id);
+    },[])
+
+
+    async function getInfo(id: string) {
+        try {
+            const resp = await fetch(`http://localhost:5000/data?id=${id}`, {
+                method: "GET",
+                credentials:"include",
+                headers: {
+                    "Content-type": "application/json",
+                }
+                
+            });
+
+            if(resp.status == 200) {
+                const info = await resp.json();
+                console.log(info);
+                setInfo(info);
+            }
+        } catch(e) {
+            console.log(e);
+        }
+    }
+    
 
     function addPassword(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
         console.log("I am here");
     }
 
-
+    
     if(sessionStorage.getItem('loggedIn') !== "true") return redirect('/login')
     else return(
         <>
@@ -27,16 +57,11 @@ const Data = () => {
                         <button type='submit'>Add account</button>
                     </form>
                 </div>
-                <button onClick={}>TEST</button>
+                <button>TEST</button>
             </section>
             
         </>
     )
-
-    return (
-        <h1>h</h1>
-    )
-    
 }
 
 export default Data;
