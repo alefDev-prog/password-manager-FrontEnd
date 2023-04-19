@@ -1,3 +1,4 @@
+import './style/layout.scss';
 
 const DataRoot = ({children}: {children: React.ReactNode}) => {
     return (

@@ -1,0 +1,31 @@
+@import '../../global-style/_mixins.scss';
+
+.data-wrapper {
+    height: 100%;
+    display:relative;
+    box-sizing: border-box;
+}
+
+.pass-container {
+
+    @include flex(column, nowrap);
+    @include absolute(200px);
+    border-radius:4em;
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding:2em;
+    
+
+    form {
+
+        * {
+            display: block;
+        }
+    }
+
+
+
+}
