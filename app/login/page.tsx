@@ -31,6 +31,10 @@ const Login = () => {
                     email, password
                 }),
             });
+
+            if(resp.status == 202) {
+                sessionStorage.setItem('loggedIn', 'true');
+            }
         } catch(e) {
             console.log(e);
         }
