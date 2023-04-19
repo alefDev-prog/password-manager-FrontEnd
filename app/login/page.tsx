@@ -20,7 +20,7 @@ const Login = () => {
     async function submitFunc(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
         
-        try {
+       try {
             const resp = await fetch('http://localhost:5000/login',{
                 method:"POST",
                 credentials:"include",
@@ -34,13 +34,22 @@ const Login = () => {
         } catch(e) {
             console.log(e);
         }
+
+    
+
     }
 
+        
+
+
+
+
     async function testAuth() {
-        const resp = await fetch("http://localhost:5000/data", {
+       const resp = await fetch("http://localhost:5000/data", {
             method:"GET",
             credentials: "include"
         })
+
 
         console.log(resp);
     }
@@ -72,3 +81,14 @@ const Login = () => {
 export default Login;
 
 
+
+
+/*
+
+app.post('/logout', (req, res) => {
+    req.session.destroy(err => {if (err) console.log(err)});
+    res.clearCookie(`${SESSION_NAME}`);
+    res.json("cleared cookie");
+})
+
+*/
