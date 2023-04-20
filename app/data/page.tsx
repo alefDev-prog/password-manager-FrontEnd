@@ -52,17 +52,34 @@ const Data = () => {
     }
 
    function handleNewUsername(e:any):void {
-    setNewAccount(e.target.value);
+        setNewAccount(e.target.value);
    }
 
    function handleNewPass(e: any):void {
-    setNewPass(e.target.value);
+        setNewPass(e.target.value);
     }
     
 
-    function addPassword(e:FormEvent<HTMLFormElement>) {
+    async function addPassword(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        console.log(newAccount);
+        const userId = sessionStorage.getItem('userId');
+        
+        try {
+            const resp = await fetch('http://localhost:5000/add', {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    newAccount, newPass, userId
+                }),
+            });
+            console.log(await resp.json());
+
+        } catch(err) {
+            console.log(err);
+        }
         
     }
 
