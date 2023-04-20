@@ -50,11 +50,20 @@ const Data = () => {
             console.log(e);
         }
     }
+
+   function handleNewUsername(e:any):void {
+    setNewAccount(e.target.value);
+   }
+
+   function handleNewPass(e: any):void {
+    setNewPass(e.target.value);
+    }
     
 
     function addPassword(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        console.log("I am here");
+        console.log(newAccount);
+        
     }
 
     
@@ -64,8 +73,8 @@ const Data = () => {
             <section className='data-wrapper'>
                 <div className='pass-container' id="add-pass-container">
                     <form onSubmit={addPassword}>
-                        <input type='text' placeholder='add site' ></input>
-                        <input type='text' placeholder='add password'></input>
+                        <input type='text' placeholder='add site' onChange={handleNewUsername}></input>
+                        <input type='text' placeholder='add password' onChange={handleNewPass}></input>
                         <button type='submit'>Add account</button>
                     </form>
                 </div>
