@@ -2,14 +2,22 @@
 
 import { redirect } from 'next/navigation';
 import { FormEvent, useState, useEffect } from 'react';
+import { infoUser } from '../types/interface';
 
 import './style/page.scss';
+
 
 const Data = () => {
 
 
     const [showEdit, setShowEdit] = useState(false);
-    const [info, setInfo] = useState(null);
+
+    //info about the user
+    const [info, setInfo] = useState<infoUser>({});
+
+    //add new account
+    const [newAccount, setNewAccount] = useState('');
+    const [newPass, setNewPass] = useState('');
     
 
     useEffect(()=> {
@@ -31,8 +39,12 @@ const Data = () => {
 
             if(resp.status == 200) {
                 const info = await resp.json();
-                console.log(info);
-                setInfo(info);
+                const structuredInfo: infoUser = {
+                    username: info.email,
+                    account: info.account
+                };
+
+                setInfo(structuredInfo);
             }
         } catch(e) {
             console.log(e);
@@ -52,12 +64,12 @@ const Data = () => {
             <section className='data-wrapper'>
                 <div className='pass-container' id="add-pass-container">
                     <form onSubmit={addPassword}>
-                        <input type='text' placeholder='add site'></input>
+                        <input type='text' placeholder='add site' ></input>
                         <input type='text' placeholder='add password'></input>
                         <button type='submit'>Add account</button>
                     </form>
                 </div>
-                <button>TEST</button>
+                <button>{info.username}</button>
             </section>
             
         </>
