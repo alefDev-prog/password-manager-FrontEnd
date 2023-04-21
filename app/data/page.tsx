@@ -3,6 +3,7 @@
 import { redirect } from 'next/navigation';
 import { FormEvent, useState, useEffect } from 'react';
 import { infoUser } from '../types/interface';
+import Modal from './components/modal';
 
 import './style/page.scss';
 
@@ -51,6 +52,11 @@ const Data = () => {
         }
     }
 
+
+    function handleShow(e:any):void {
+        setShowEdit(!showEdit);
+    }
+
    function handleNewUsername(e:any):void {
         setNewAccount(e.target.value);
    }
@@ -88,14 +94,18 @@ const Data = () => {
     else return(
         <>
             <section className='data-wrapper'>
-                <div className='pass-container' id="add-pass-container">
-                    <form onSubmit={addPassword}>
-                        <input type='text' placeholder='add site' onChange={handleNewUsername}></input>
-                        <input type='text' placeholder='add password' onChange={handleNewPass}></input>
-                        <button type='submit'>Add account</button>
-                    </form>
-                </div>
-                <button>{info.username}</button>
+
+                <Modal open={showEdit}>
+                    <div className='pass-container' id="add-pass-container">
+                        <form onSubmit={addPassword}>
+                            <input type='text' placeholder='add site' onChange={handleNewUsername}></input>
+                            <input type='text' placeholder='add password' onChange={handleNewPass}></input>
+                            <button type='submit'>Add account</button>
+                        </form>
+                        <button onClick={handleShow}>CLOSE</button>
+                    </div>
+                </Modal>
+                <button onClick={handleShow}>{info.username}</button>
             </section>
             
         </>
