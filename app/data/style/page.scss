@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-.pass-container {
+#add-pass-container {
 
     @include flex(column, nowrap);
     @include absolute(200px);
@@ -37,4 +37,23 @@
     bottom:0;
     background-color: rgba(0,0,0, 0.75);
 }
+
+
+#all-pass-wrapper {
+    @include flex(row, wrap);
+    
+    .pass-container {
+        background-color: white;
+        padding:2em;
+        width:100px;
+        border-radius: 5px;
+        margin:1em;
+
+        .pass-protecter {
+            display: none;
+        }
+    }
+}
+
+
 

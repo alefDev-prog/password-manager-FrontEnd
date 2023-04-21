@@ -1,9 +1,10 @@
 "use client";
 
 import { redirect } from 'next/navigation';
-import { FormEvent, useState, useEffect } from 'react';
+import React, { FormEvent, useState, useEffect } from 'react';
 import { infoUser } from '../types/interface';
 import Modal from './components/modal';
+import PassContainer from './components/passContainer';
 
 import './style/page.scss';
 
@@ -96,7 +97,7 @@ const Data = () => {
             <section className='data-wrapper'>
 
                 <Modal open={showEdit}>
-                    <div className='pass-container' id="add-pass-container">
+                    <div id="add-pass-container">
                         <form onSubmit={addPassword}>
                             <input type='text' placeholder='add site' onChange={handleNewUsername}></input>
                             <input type='text' placeholder='add password' onChange={handleNewPass}></input>
@@ -106,6 +107,16 @@ const Data = () => {
                     </div>
                 </Modal>
                 <button onClick={handleShow}>{info.username}</button>
+                <div id="all-pass-wrapper">
+
+
+                    {/* Dynamically render all passwords */}
+                    {info.account?.map((obj, index):React.ReactNode => {
+                        return (
+                            <PassContainer obj={obj} key={index} />
+                        )
+                    })}
+                </div>
             </section>
             
         </>

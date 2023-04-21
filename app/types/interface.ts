@@ -5,3 +5,10 @@ export interface infoUser {
         AccountPassword?: String
     }]
 }
+
+export interface accountObj {
+
+    AccountName: String,
+    AccountPassword?: String
+
+}
