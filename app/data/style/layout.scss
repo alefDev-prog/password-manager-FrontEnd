@@ -1,3 +1,30 @@
+@import '../../global-style/_mixins.scss';
+@import '../../global-style/_variables.scss';
+
+
 .data-layout {
     height: 100vh;
+
+
+    .nav-bar {
+        width: 100%;
+        background-color: white;
+        padding:2em;
+        
+        @include flex(row, wrap);
+        justify-content: center;
+
+
+        #logout {
+            color:white;
+            background-color: $pinkColor;
+            border-radius: 1em;
+            padding:1.2em 1.5em;
+            font-size: 1.3em;
+            cursor: pointer;
+        }
+
+    }
+
+
 }
