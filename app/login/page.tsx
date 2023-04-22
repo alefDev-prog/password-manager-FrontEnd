@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { setGlobalState, useGlobalState } from "../globalState/globalState";
+
 
 
 const Login = () => {
@@ -38,7 +38,7 @@ const Login = () => {
             if(resp.status == 202) {
                 sessionStorage.setItem('loggedIn', 'true');
                 sessionStorage.setItem('userId', id);
-        
+                window.location.reload();
 
             }
         } catch(e) {
@@ -47,30 +47,6 @@ const Login = () => {
 
     
 
-    }
-
-        
-
-
-
-
-    async function testAuth() {
-       const resp = await fetch("http://localhost:5000/data", {
-            method:"GET",
-            credentials: "include"
-        })
-
-
-        console.log(resp);
-    }
-
-    async function testLogOut() {
-        const resp = await fetch("http://localhost:5000/logout", {
-            method:"POST",
-            credentials: "include"
-        })
-
-        console.log(resp);
     }
 
 
@@ -82,8 +58,6 @@ const Login = () => {
                 <input type="password" name="password" placeholder="password" onChange={setPass}/>
                 <button type="submit">Submit</button>
             </form>
-            <button onClick={testAuth}>TEST</button>
-            <button onClick={testLogOut}>{useGlobalState("userId")[0]}</button>
         </main>
     )
 }

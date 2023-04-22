@@ -91,8 +91,8 @@ const Data = () => {
     }
 
     
-    if(sessionStorage.getItem('loggedIn') !== "true") return redirect('/login')
-    else return(
+   
+    return(
         <>
             <section className='data-wrapper'>
 
