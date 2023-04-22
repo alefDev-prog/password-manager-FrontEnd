@@ -32,10 +32,44 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
     }
 
 
+    async function deleteAccount() {
+        
+        
+        handleClose();
+        const userId = sessionStorage.getItem('userId');
+        const accountId = obj._id;
+        
+
+        
+        try {
+            const resp = await fetch(`http://localhost:5000/delete`, {
+                method: "DELETE",
+                credentials: "include",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    userId, accountId
+                }),
+            });
+    
+            console.log(await resp.json());
+        } catch(err) {
+            console.log(err);
+        }
+       
+
+        
+
+    }
+
+    //closing the modal
     function handleClose() {
         setOpenPassword(false);
         setPassword('');
+        console.log(password);
     }
+
 
 
     return (
@@ -44,6 +78,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
                     <div id="add-pass-container">
                         {password}
                         <button onClick={() =>setOpenPassword(false)}>Close</button>
+                        <button onClick={deleteAccount}>Delete</button>
                     </div>
                 </Modal>
             <div className="pass-container" onClick={getPass}>
