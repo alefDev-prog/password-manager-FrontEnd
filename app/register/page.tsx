@@ -1,5 +1,6 @@
 'use client';
 import React, { FormEvent} from 'react';
+import Link from 'next/link';
 
 
 import { useState } from 'react';
@@ -44,6 +45,7 @@ const Register = () => {
                 <input type="text" name="username" onChange={setUser} placeholder='email'/>
                 <input type="password" name="password" placeholder="password" onChange={setPass}/>
                 <button type="submit">Submit</button>
+                <p id="link"><Link href="/login">Login</Link></p>
             </form>
             
             

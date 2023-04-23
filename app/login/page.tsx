@@ -1,6 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
+import './page.scss';
 
 
 
@@ -57,7 +59,9 @@ const Login = () => {
                 <input type="text" name="username" onChange={setUser} placeholder="email"/>
                 <input type="password" name="password" placeholder="password" onChange={setPass}/>
                 <button type="submit">Submit</button>
+                <p id="link"><Link href="/register">Register</Link></p>
             </form>
+            
         </main>
     )
 }

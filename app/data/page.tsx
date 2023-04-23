@@ -4,9 +4,15 @@ import { redirect } from 'next/navigation';
 import React, { FormEvent, useState, useEffect } from 'react';
 import { infoUser } from '../types/interface';
 import Modal from './components/modal';
-import PassContainer from './components/passContainer';
-
+import PassContainer from './components/passContainer'; 
 import './style/page.scss';
+
+//font-awesome
+import "@fortawesome/fontawesome-svg-core/styles.css"; 
+import { config } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAmbulance, faPlus } from '@fortawesome/free-solid-svg-icons';
+config.autoAddCss = false; 
 
 
 const Data = () => {
@@ -23,6 +29,7 @@ const Data = () => {
     
 
     useEffect(()=> {
+        
         const id = sessionStorage.getItem('userId');
         typeof id == "string" && getInfo(id);
     },[])
@@ -106,9 +113,10 @@ const Data = () => {
                         <button onClick={handleShow}>CLOSE</button>
                     </div>
                 </Modal>
-                <button onClick={handleShow}>{info.username}</button>
                 <div id="all-pass-wrapper">
-
+                    <div className="pass-container" onClick={handleShow}>
+                    <FontAwesomeIcon icon={faPlus}/>
+                    </div>
 
                     {/* Dynamically render all passwords */}
                     {info.account?.map((obj, index):React.ReactNode => {
@@ -124,3 +132,5 @@ const Data = () => {
 }
 
 export default Data;
+
+
