@@ -5,6 +5,7 @@ import React, { FormEvent, useState, useEffect } from 'react';
 import { infoUser } from '../types/interface';
 import Modal from './components/modal';
 import PassContainer from './components/passContainer'; 
+import getInfoTest  from '@/lib/getUserInfo';
 import './style/page.scss';
 
 //font-awesome
@@ -15,8 +16,9 @@ import { faAmbulance, faPlus } from '@fortawesome/free-solid-svg-icons';
 config.autoAddCss = false; 
 
 
-const Data = () => {
 
+
+const Data = () => {
 
     const [showEdit, setShowEdit] = useState(false);
 
