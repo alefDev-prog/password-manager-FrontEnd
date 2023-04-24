@@ -2,9 +2,7 @@
 @import './global-style/_variables';
 @import './global-style/globals';
 
-html, body {
-  height: 100vh;
-}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -21,7 +19,7 @@ html, body {
    
 
     #title {
-      font-size: 3em;
+      font-size: 3.5em;
       color: $pinkColor;
     }
 

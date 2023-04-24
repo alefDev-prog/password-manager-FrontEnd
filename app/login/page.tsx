@@ -1,20 +1,24 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import Link from "next/link";
 import './page.scss';
+import { authContext } from "../context/context";
 
 
 
 const Login = () => {
 
 
-    const [email, setEmail] = useState(null);
+    const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
 
 
+    const {userId, setUserId} = useContext(authContext);
+
+
     function setUser(e: any): void {
-        setEmail(e.target.value);
+        setUsername(e.target.value);
     }
     function setPass(e: any):void {
         setPassword(e.target.value);
@@ -32,7 +36,7 @@ const Login = () => {
                     "Content-type": "application/json",
                 },
                 body: JSON.stringify({
-                    email, password
+                    username, password
                 }),
             });
             const id = (await resp.json());
@@ -40,6 +44,7 @@ const Login = () => {
             if(resp.status == 202) {
                 sessionStorage.setItem('loggedIn', 'true');
                 sessionStorage.setItem('userId', id);
+                setUserId(username);
                 window.location.reload();
 
             }

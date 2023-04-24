@@ -6,11 +6,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 const Register = () => {
 
-    const [email, setEmail] = useState(null);
+    const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
 
     function setUser(e: any): void {
-        setEmail(e.target.value);
+        setUsername(e.target.value);
     }
     function setPass(e: any):void {
         setPassword(e.target.value);
@@ -26,7 +26,7 @@ const Register = () => {
                     "Content-type": "application/json",
                 },
                 body: JSON.stringify({
-                    email, password
+                    username, password
                 }),
             });
             alert("You are registered");
