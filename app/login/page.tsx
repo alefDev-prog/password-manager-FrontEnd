@@ -41,10 +41,9 @@ const Login = () => {
             });
             const id = (await resp.json());
 
-            if(resp.status == 202) {
+            if(resp.ok) {
                 sessionStorage.setItem('loggedIn', 'true');
                 sessionStorage.setItem('userId', id);
-                setUserId(username);
                 window.location.reload();
 
             }
