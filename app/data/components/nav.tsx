@@ -25,6 +25,7 @@ const Nav = () => {
 
     return (
         <nav className="nav-bar">
+            <h1 id="data-title">Welcome to the accounts page</h1>
            <div id="logout" onClick={logOut}>Log out</div>
         </nav>
     )

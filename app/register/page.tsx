@@ -22,6 +22,7 @@ const Register = () => {
         try {
             const resp = await fetch('http://localhost:5000/register',{
                 method:"POST",
+                credentials:"include",
                 headers: {
                     "Content-type": "application/json",
                 },
@@ -29,7 +30,17 @@ const Register = () => {
                     username, password
                 }),
             });
-            alert("You are registered");
+            
+            const id = (await resp.json());
+            
+            if(resp.ok) {
+                sessionStorage.setItem('loggedIn', 'true');
+                sessionStorage.setItem('userId', id);
+                window.location.reload();
+
+            }
+
+
         } catch(e) {
             console.log(e);
         }

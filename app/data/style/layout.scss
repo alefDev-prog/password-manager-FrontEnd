@@ -12,16 +12,26 @@
         padding:2em;
         
         @include flex(row, wrap);
+        align-items: center;
         justify-content: center;
+
+        #data-title {
+            
+            @include flex(column, nowrap);
+            justify-content: center;
+        }
 
 
         #logout {
+            position: absolute;
+            right: 2em;
             color:white;
             background-color: $pinkColor;
             border-radius: 1em;
             padding:1.2em 1.5em;
             font-size: 1.3em;
             cursor: pointer;
+            margin-left: 5em;
         }
 
     }
