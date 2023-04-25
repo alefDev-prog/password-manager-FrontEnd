@@ -1,20 +1,32 @@
 "use client";
 
-import { FormEvent, useContext, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import './page.scss';
-import { authContext } from "../context/context";
+
 
 
 
 const Login = () => {
 
 
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
 
-    const {userId, setUserId} = useContext(authContext);
+    const [usernameMessage, setUsernameMessage] = useState('Required');
+    const [passwordMessage, setPasswordMessage] = useState('Required');
+
+
+    useEffect(() => {
+        if(password == '') setPasswordMessage('Required');
+        else setPasswordMessage('');
+        if(username == '') setUsernameMessage('Required');
+        else setUsernameMessage('');
+    }, [password, username])
+
+
+    
 
 
     function setUser(e: any): void {
@@ -39,9 +51,12 @@ const Login = () => {
                     username, password
                 }),
             });
-            const id = (await resp.json());
-
+            
+            if(!resp.ok) {
+                setPasswordMessage("Username or password invalid");
+            }
             if(resp.ok) {
+                const id = (await resp.json());
                 sessionStorage.setItem('loggedIn', 'true');
                 sessionStorage.setItem('userId', id);
                 window.location.reload();
@@ -60,8 +75,12 @@ const Login = () => {
         <main className="auth-wrapper">
             <form onSubmit={submitFunc} className="auth-form">
                 <h1 className="auth-header">Login</h1>
-                <input type="text" name="username" onChange={setUser} placeholder="email"/>
+                <h2 className="auth-description">Username</h2>
+                <input type="text" name="username" onChange={setUser} placeholder="username"/>
+                <p className='auth-message'>{usernameMessage}</p>
+                <h2 className="auth-description">Password</h2>
                 <input type="password" name="password" placeholder="password" onChange={setPass}/>
+                <p className='auth-message'>{passwordMessage}</p>
                 <button type="submit">Submit</button>
                 <p id="link"><Link href="/register">Register</Link></p>
             </form>
