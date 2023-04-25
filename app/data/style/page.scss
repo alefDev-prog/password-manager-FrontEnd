@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-#add-pass-container {
+.module-container {
 
     @include flex(column, nowrap);
     @include absolute(200px);
@@ -28,6 +28,15 @@
 
 }
 
+
+.close-btn {
+    cursor: pointer;
+    position: absolute;
+    color: red;
+    font-size: 2em;
+    top:20px;
+    right: 20px;
+}
 
 #modal-overlay {
     position: fixed;

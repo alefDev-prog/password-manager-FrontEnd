@@ -4,6 +4,8 @@ import '../style/page.scss';
 import { accountObj } from '@/app/types/interface';
 import { useState } from 'react';
 import Modal from './modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 
 const PassContainer = ({obj}: {obj: accountObj}) => {
@@ -70,14 +72,16 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
         console.log(password);
     }
 
+    
 
 
     return (
         <>
              <Modal open={openPassword}>
-                    <div id="add-pass-container">
+                    <div className="module-container">
                         {password}
-                        <button onClick={() =>setOpenPassword(false)}>Close</button>
+                        
+                        <FontAwesomeIcon onClick={handleClose} icon={faX} className='close-btn'></FontAwesomeIcon>
                         <button onClick={deleteAccount}>Delete</button>
                     </div>
                 </Modal>

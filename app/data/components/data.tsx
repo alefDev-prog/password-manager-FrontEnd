@@ -1,20 +1,18 @@
 "use client";
 
-import { redirect } from 'next/navigation';
 import React, { FormEvent, useState, useEffect } from 'react';
 import { infoUser } from '@/app/types/interface';
 import Modal from './modal';
 import PassContainer from './passContainer';
 
 import '../style/page.scss';
-import { authContext } from '@/app/context/context';
-import {useContext} from 'react';
+
 
 //font-awesome
 import "@fortawesome/fontawesome-svg-core/styles.css"; 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faX } from '@fortawesome/free-solid-svg-icons';
 config.autoAddCss = false; 
 
 
@@ -120,13 +118,15 @@ const Data = () => {
         <>
             <section className='data-wrapper'>
                 <Modal open={showEdit}>
-                    <div id="add-pass-container">
+                    <div className="module-container">
                         <form onSubmit={addPassword}>
-                            <input type='text' placeholder='add site' onChange={handleNewUsername}></input>
-                            <input type='text' placeholder='add password' onChange={handleNewPass}></input>
+                            <input type='text' placeholder='add site' onChange={handleNewUsername} required></input>
+                            <input type='text' placeholder='add password' onChange={handleNewPass} required></input>
+                            
                             <button type='submit'>Add account</button>
                         </form>
-                        <button onClick={handleShow}>CLOSE</button>
+                        <FontAwesomeIcon onClick={handleShow} icon={faX} className='close-btn'></FontAwesomeIcon>
+                        
                     </div>
                 </Modal>
                 <div id="all-pass-wrapper">
