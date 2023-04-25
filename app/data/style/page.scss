@@ -1,4 +1,6 @@
 @import '../../global-style/_mixins.scss';
+@import '../../global-style/_variables.scss';
+@import '../../global-style/_animations.scss';
 
 .data-wrapper {
     height: 100%;
@@ -24,7 +26,54 @@
         * {
             display: block;
         }
+
+        input:first-of-type {
+            margin-bottom: 1em;
+        }
+
+        #add-account {
+            background-color: $pinkColor;
+            border: none;
+            color: white;
+            padding: 1em 1em;
+            border-radius: $btn-border-radius;
+            cursor: pointer;
+            margin: auto;
+            margin-top:2em;
+            margin-bottom: -1em;
+
+        }
     }
+
+    #pass-title {
+        position: absolute;
+        top: 30%;
+    }
+
+    #pass-spinner {
+        font-size: 2em;
+        color: $pinkColor;
+        transform-origin: 48% 50%;
+        animation-name: loading-animation;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    #password {
+        font-size: 2em;
+    }
+
+
+    #delete-btn {
+        cursor: pointer;
+        position: absolute;
+        bottom: 1.5em;
+        color: $pinkColor;
+        font-size: 3em;
+    }
+
+   
 
 }
 
@@ -32,7 +81,7 @@
 .close-btn {
     cursor: pointer;
     position: absolute;
-    color: red;
+    color: $pinkColor;
     font-size: 2em;
     top:20px;
     right: 20px;
@@ -55,7 +104,7 @@
         background-color: white;
         padding:2em;
         width:100px;
-        border-radius: 5px;
+        border-radius: $btn-border-radius;
         margin:1em;
         cursor: pointer;
 

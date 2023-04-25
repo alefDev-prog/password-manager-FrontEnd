@@ -5,13 +5,14 @@ import { accountObj } from '@/app/types/interface';
 import { useState } from 'react';
 import Modal from './modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faX } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faTrash, faX } from '@fortawesome/free-solid-svg-icons';
 
 
 const PassContainer = ({obj}: {obj: accountObj}) => {
 
     const [password, setPassword] = useState('');
     const [openPassword, setOpenPassword] = useState(false);
+    
 
     async function getPass() {
 
@@ -55,7 +56,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
                 }),
             });
     
-            console.log(await resp.json());
+            window.location.reload();
         } catch(err) {
             console.log(err);
         }
@@ -79,10 +80,13 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
         <>
              <Modal open={openPassword}>
                     <div className="module-container">
-                        {password}
-                        
+                        <h2 id="pass-title">Password:</h2>
+                        {password === '' ?
+                        <FontAwesomeIcon icon={faSpinner} id="pass-spinner"></FontAwesomeIcon> :
+                        <p id="password">{password}</p>}
                         <FontAwesomeIcon onClick={handleClose} icon={faX} className='close-btn'></FontAwesomeIcon>
-                        <button onClick={deleteAccount}>Delete</button>
+                        <FontAwesomeIcon onClick={deleteAccount} icon={faTrash} id="delete-btn"></FontAwesomeIcon>
+                        
                     </div>
                 </Modal>
             <div className="pass-container" onClick={getPass}>

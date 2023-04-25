@@ -64,6 +64,14 @@ input {
     @include flex(column, nowrap);
     align-items: center;
     min-height: 300px;
+
+    .back-arrow {
+      position: absolute;
+      top: 7em;
+      left: 10em;
+      font-size: 2em;
+      color: $pinkColor;
+    }
     
     input {
       
@@ -84,7 +92,7 @@ input {
 
     .auth-message {
       align-self: flex-start;
-      color: red;
+      color: $pinkColor;
       margin-top: -3.5em;
       margin-left: 0.5em;     
       height: 1ch;

@@ -3,6 +3,8 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import './page.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -73,6 +75,7 @@ const Login = () => {
 
     return (
         <main className="auth-wrapper">
+
             <form onSubmit={submitFunc} className="auth-form">
                 <h1 className="auth-header">Login</h1>
                 <h2 className="auth-description">Username</h2>

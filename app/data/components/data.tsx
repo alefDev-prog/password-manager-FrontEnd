@@ -83,6 +83,9 @@ const Data = () => {
 
     async function addPassword(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
+        if(newAccount === '' || newPass === '') return;
+
         const userId = sessionStorage.getItem('userId');
         
         try {
@@ -96,8 +99,8 @@ const Data = () => {
                     newAccount, newPass, userId
                 }),
             });
-            console.log(await resp.json());
-
+            
+            window.location.reload();
         } catch(err) {
             console.log(err);
         }
@@ -120,10 +123,10 @@ const Data = () => {
                 <Modal open={showEdit}>
                     <div className="module-container">
                         <form onSubmit={addPassword}>
-                            <input type='text' placeholder='add site' onChange={handleNewUsername} required></input>
-                            <input type='text' placeholder='add password' onChange={handleNewPass} required></input>
+                            <input type='text' placeholder='add site' onChange={handleNewUsername}></input>
+                            <input type='text' placeholder='add password' onChange={handleNewPass}></input>
                             
-                            <button type='submit'>Add account</button>
+                            <button type='submit' id="add-account">Add account</button>
                         </form>
                         <FontAwesomeIcon onClick={handleShow} icon={faX} className='close-btn'></FontAwesomeIcon>
                         
