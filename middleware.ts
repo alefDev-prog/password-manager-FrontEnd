@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
+import cookie from 'cookie';
 
 
 export function middleware(request: any) {
-    const cookie = request.cookies.get(`${process.env.COOKIE_NAME}`);
+    const cookies = cookie.parse(request.headers.cookie || ''); // parse cookies from request headers
     
-    if(cookie != undefined && (request.url.includes('register') || request.url.includes('login'))) {
+    if(cookies != undefined && (request.url.includes('register') || request.url.includes('login'))) {
         return NextResponse.redirect(`${process.env.FRONTEND_URL}`+'data');
     }
 
-    if(cookie == undefined && request.url.includes('data')) {
+    if(cookies == undefined && request.url.includes('data')) {
         return NextResponse.redirect(`${process.env.FRONTEND_URL}`+'login');
     }
     
