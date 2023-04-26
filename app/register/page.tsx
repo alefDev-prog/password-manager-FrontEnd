@@ -34,7 +34,7 @@ const Register = () => {
         
         
         try {
-            const resp = await fetch('http://localhost:5000/register',{
+            const resp = await fetch(`${process.env.BACKEND_URL}/register`,{
                 method:"POST",
                 credentials:"include",
                 headers: {

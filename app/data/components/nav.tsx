@@ -6,7 +6,7 @@ const Nav = () => {
 
     async function logOut () {
         try {
-            const resp = await fetch('http://localhost:5000/logout',{
+            const resp = await fetch(`${process.env.BACKEND_URL}/logout`,{
                 method:"GET",
                 credentials:"include",
                 headers: {

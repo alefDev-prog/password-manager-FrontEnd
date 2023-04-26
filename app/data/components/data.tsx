@@ -37,12 +37,12 @@ const Data = () => {
         const id = sessionStorage.getItem('userId');
         typeof id == "string" && getInfo(id);
     },[])
-
+    
 
     async function getInfo(id: string) {
         try {
             setLoading(true);
-            const resp = await fetch(`http://localhost:5000/data?id=${id}`, {
+            const resp = await fetch(`${process.env.BACKEND_URL}/data?id=${id}`, {
                 method: "GET",
                 credentials:"include",
                 headers: {
@@ -89,7 +89,7 @@ const Data = () => {
         const userId = sessionStorage.getItem('userId');
         
         try {
-            const resp = await fetch('http://localhost:5000/add', {
+            const resp = await fetch(`${process.env.BACKEND_URL}/add`, {
                 method: "POST",
                 credentials: "include",
                 headers: {

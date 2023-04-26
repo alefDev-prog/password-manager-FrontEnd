@@ -21,7 +21,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
         const userId = sessionStorage.getItem('userId');
         const accountId = obj._id;
 
-        const resp = await fetch(`http://localhost:5000/getpass`, {
+        const resp = await fetch(`${process.env.BACKEND_URL}/getpass`, {
             method: "POST",
             credentials: "include",
             headers: {
@@ -45,7 +45,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
 
         
         try {
-            const resp = await fetch(`http://localhost:5000/delete`, {
+            const resp = await fetch(`${process.env.BACKEND_URL}/delete`, {
                 method: "DELETE",
                 credentials: "include",
                 headers: {
