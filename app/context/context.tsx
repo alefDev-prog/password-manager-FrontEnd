@@ -9,12 +9,12 @@ export const useAuthContext = () => useContext(authContext)
 
 const AuthProvider = ({children}: {children: React.ReactNode}) => {
 
-    const [userId, setUserId] = useState("userID");
+    const [usernameCont, setUsernameCont] = useState("userID");
 
     
 
     return (
-    <authContext.Provider value={{userId, setUserId}}>
+    <authContext.Provider value={{usernameCont, setUsernameCont}}>
         {children}
     </authContext.Provider>
     )

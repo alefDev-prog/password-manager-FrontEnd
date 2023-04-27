@@ -41,7 +41,7 @@ const Login = () => {
         
 
        try {
-            const resp = await fetch('https://password-manager-backend-4mqx.onrender.com/login',{
+            const resp = await fetch(`${process.env.BACKEND_URL}/login`,{
                 method:"POST",
                 credentials:"include",
                 headers: {
@@ -59,7 +59,9 @@ const Login = () => {
                 const id = (await resp.json());
                 sessionStorage.setItem('loggedIn', 'true');
                 sessionStorage.setItem('userId', id);
-                window.location.reload();
+                //window.location.reload();
+
+                
 
             }
         } catch(e) {

@@ -1,11 +1,13 @@
 import Data from "./components/data"
 import Nav from "./components/nav"
-import { Suspense, lazy } from "react"
-import dynamic from "next/dynamic"
+import { useRouter } from "next/router"
 
 
 
 export default function DataWrapper() {
+
+    const router = useRouter();
+   
     return (
         <>
             <Nav />
