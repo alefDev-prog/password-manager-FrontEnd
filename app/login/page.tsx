@@ -41,7 +41,7 @@ const Login = () => {
         
 
        try {
-            const resp = await fetch(`${process.env.BACKEND_URL}/login`,{
+            const resp = await fetch('https://password-manager-backend-4mqx.onrender.com/login',{
                 method:"POST",
                 credentials:"include",
                 headers: {
