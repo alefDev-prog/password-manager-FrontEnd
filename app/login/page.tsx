@@ -59,6 +59,7 @@ const Login = () => {
                 const id = (await resp.json());
                 sessionStorage.setItem('loggedIn', 'true');
                 sessionStorage.setItem('userId', id);
+                //test
                 //window.location.reload();
 
                 
@@ -68,7 +69,6 @@ const Login = () => {
             console.log(e);
         }
 
-    
 
     }
 
