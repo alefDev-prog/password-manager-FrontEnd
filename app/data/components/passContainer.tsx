@@ -54,6 +54,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
                 body: JSON.stringify({
                     userId, accountId
                 }),
+                mode: 'no-cors'
             });
     
             window.location.reload();
