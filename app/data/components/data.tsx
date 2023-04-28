@@ -47,7 +47,8 @@ const Data = () => {
                 credentials:"include",
                 headers: {
                     "Content-type": "application/json",
-                }
+                },
+                mode: "cors"
                 
             });
 
