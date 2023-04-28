@@ -48,7 +48,7 @@ const Data = () => {
                 headers: {
                     "Content-type": "application/json",
                 },
-                mode: "cors"
+               
                 
             });
 
