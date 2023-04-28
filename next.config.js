@@ -26,6 +26,10 @@ const nextConfig = {
         source: "/api/delete",
         destination: "https://password-manager-backend-4mqx.onrender.com/delete",
       },
+      {
+        source: "/api/getpass",
+        destination: "https://password-manager-backend-4mqx.onrender.com/getpass",
+      },
     ];
   }
 }

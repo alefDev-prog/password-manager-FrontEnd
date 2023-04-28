@@ -21,7 +21,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
         const userId = sessionStorage.getItem('userId');
         const accountId = obj._id;
 
-        const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/getpass`, {
+        const resp = await fetch(`/api/getpass`, {
             method: "POST",
             credentials: "include",
             headers: {
