@@ -3,7 +3,7 @@ import cookie from 'cookie';
 
 
 export function middleware(request: any) {
-    const cookies = cookie.parse(request.headers.cookie || ''); // parse cookies from request headers
+    /*const cookies = cookie.parse(request.headers.cookie || ''); // parse cookies from request headers
     console.log(cookies);
     
     if(Object.keys(cookies).length !== 0 && (request.url.includes('register') || request.url.includes('login'))) {
@@ -13,6 +13,6 @@ export function middleware(request: any) {
     if(Object.keys(cookies).length === 0 && request.url.includes('data')) {
         return NextResponse.redirect(`${process.env.FRONTEND_URL}`+'login');
     }
-    
+    */
     
 }
