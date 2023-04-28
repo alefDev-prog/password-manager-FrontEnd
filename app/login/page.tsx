@@ -50,7 +50,7 @@ const Login = () => {
                 body: JSON.stringify({
                     username, password
                 }),
-                mode: "cors"
+                
             });
             
             //test
