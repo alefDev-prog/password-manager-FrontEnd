@@ -42,7 +42,7 @@ const Data = () => {
     async function getInfo(id: string) {
         try {
             setLoading(true);
-            const resp = await fetch(`${process.env.BACKEND_URL}/data?id=${id}`, {
+            const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/data?id=${id}`, {
                 method: "GET",
                 credentials:"include",
                 headers: {
