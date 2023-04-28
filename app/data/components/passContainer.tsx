@@ -21,7 +21,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
         const userId = sessionStorage.getItem('userId');
         const accountId = obj._id;
 
-        const resp = await fetch(`${process.env.BACKEND_URL}/getpass`, {
+        const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/getpass`, {
             method: "POST",
             credentials: "include",
             headers: {
@@ -45,7 +45,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
 
         
         try {
-            const resp = await fetch(`${process.env.BACKEND_URL}/delete`, {
+            const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/delete`, {
                 method: "DELETE",
                 credentials: "include",
                 headers: {

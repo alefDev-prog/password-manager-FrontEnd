@@ -6,7 +6,7 @@ const Nav = () => {
 
     async function logOut () {
         try {
-            const resp = await fetch(`${process.env.BACKEND_URL}/logout`,{
+            const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/logout`,{
                 method:"GET",
                 credentials:"include",
                 headers: {

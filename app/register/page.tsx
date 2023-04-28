@@ -34,7 +34,7 @@ const Register = () => {
         
         
         try {
-            const resp = await fetch(`${process.env.BACKEND_URL}/register`,{
+            const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/register`,{
                 method:"POST",
                 credentials:"include",
                 headers: {
