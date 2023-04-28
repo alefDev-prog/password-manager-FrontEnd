@@ -18,6 +18,14 @@ const nextConfig = {
         source: "/api/add",
         destination: "https://password-manager-backend-4mqx.onrender.com/add",
       },
+      {
+        source: "/api/logout",
+        destination: "https://password-manager-backend-4mqx.onrender.com/logout",
+      },
+      {
+        source: "/api/delete",
+        destination: "https://password-manager-backend-4mqx.onrender.com/delete",
+      },
     ];
   }
 }

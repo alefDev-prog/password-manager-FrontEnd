@@ -45,7 +45,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
 
         
         try {
-            const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/delete`, {
+            const resp = await fetch(`api/delete`, {
                 method: "DELETE",
                 credentials: "include",
                 headers: {

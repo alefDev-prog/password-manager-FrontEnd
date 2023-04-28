@@ -90,7 +90,7 @@ const Data = () => {
         const userId = sessionStorage.getItem('userId');
         
         try {
-            const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/add`, {
+            const resp = await fetch(`/api/add`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
