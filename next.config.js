@@ -4,19 +4,7 @@ const nextConfig = {
     appDir: true,
   },
 
-}
-
-
-module.exports = () => {
-  const nextConfig = {
-    experimental: {
-      appDir: true,
-    },
-  
-  }
-
-
-  const rewrites = () => {
+  async rewrites() {
     return [
       {
         source: "/api/login",
@@ -27,10 +15,7 @@ module.exports = () => {
         destination: "https://password-manager-backend-4mqx.onrender.com/data",
       },
     ];
-  };
-  return {
-    rewrites,
-  };
-};
+  }
+}
 
-
+module.exports = nextConfig
