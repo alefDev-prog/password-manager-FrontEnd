@@ -41,7 +41,7 @@ const Login = () => {
         
 
        try {
-            const resp = await fetch('http://localhost:5000/login',{
+            const resp = await fetch('/api/login',{
                 method:"POST",
                 credentials:"include",
                 headers: {

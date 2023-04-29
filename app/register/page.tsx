@@ -34,6 +34,7 @@ const Register = () => {
         
         
         try {
+            
             const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/register`,{
                 method:"POST",
                 credentials:"include",
@@ -51,10 +52,11 @@ const Register = () => {
             
             
             if(resp.ok) {
-                const id = (await resp.json());
-                sessionStorage.setItem('loggedIn', 'true');
+                const {accesstoken, id} = (await resp.json());
+                
+                sessionStorage.setItem('jwt', accesstoken);
                 sessionStorage.setItem('userId', id);
-                window.location.reload();
+                //window.location.reload();
             }
 
 
