@@ -6,11 +6,13 @@ const Nav = () => {
 
     async function logOut () {
         try {
+            const token = sessionStorage.getItem('jwt');
             const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/logout`,{
                 method:"GET",
                 credentials:"include",
                 headers: {
                     "Content-type": "application/json",
+                    "authorization": `Bearer ${token}`
                 },
             });
             if(resp.status == 200) {

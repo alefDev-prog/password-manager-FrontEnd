@@ -20,12 +20,14 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
 
         const userId = sessionStorage.getItem('userId');
         const accountId = obj._id;
+        const token = sessionStorage.getItem('jwt');
 
         const resp = await fetch(`/api/getpass`, {
             method: "POST",
             credentials: "include",
             headers: {
                 "Content-type": "application/json",
+                "authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
                 userId, accountId
@@ -45,16 +47,17 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
 
         
         try {
+            const token = sessionStorage.getItem('jwt');
             const resp = await fetch(`api/delete`, {
                 method: "DELETE",
                 credentials: "include",
                 headers: {
                     "Content-type": "application/json",
+                    "authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     userId, accountId
-                }),
-                mode: 'no-cors'
+                })
             });
     
             window.location.reload();
