@@ -10,11 +10,11 @@ export function middleware(request: any) {
     const {origin} = request.nextUrl;
     
     if(loggedInCookie && (request.url.includes('register') || request.url.includes('login'))) {
-        return NextResponse.rewrite(origin+'/data');
+        return NextResponse.redirect(origin+'/data');
     }
 
     if(!loggedInCookie && request.url.includes('data')) {
-        return NextResponse.rewrite(origin+'/login');
+        return NextResponse.redirect(origin+'/login');
     }
     
     
