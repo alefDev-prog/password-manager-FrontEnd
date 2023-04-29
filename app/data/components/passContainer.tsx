@@ -74,7 +74,6 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
     function handleClose() {
         setOpenPassword(false);
         setPassword('');
-        console.log(password);
     }
 
     

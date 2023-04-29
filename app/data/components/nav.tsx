@@ -4,10 +4,15 @@ import '../style/layout.scss';
 
 const Nav = () => {
 
+
+    function clearCookie():void {
+        document.cookie = "logged_in=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+
     async function logOut () {
         try {
             const token = sessionStorage.getItem('jwt');
-            const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/logout`,{
+            const resp = await fetch(`/api/logout`,{
                 method:"GET",
                 credentials:"include",
                 headers: {
@@ -17,6 +22,7 @@ const Nav = () => {
             });
             if(resp.status == 200) {
                 localStorage.clear();
+                clearCookie();
                 window.location.reload();
             }
 
