@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Modal from './modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faTrash, faX } from '@fortawesome/free-solid-svg-icons';
+import checkLog from '@/lib/checkLog';
 
 
 const PassContainer = ({obj}: {obj: accountObj}) => {
@@ -15,6 +16,11 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
     
 
     async function getPass() {
+
+        if(!checkLog()){
+            window.location.reload();
+            return;
+        } 
 
         setOpenPassword(true);
 
@@ -39,6 +45,10 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
 
     async function deleteAccount() {
         
+        if(!checkLog()){
+            window.location.reload();
+            return;
+        } 
         
         handleClose();
         const userId = localStorage.getItem('userId');

@@ -4,6 +4,7 @@ import React, { FormEvent, useState, useEffect } from 'react';
 import { infoUser } from '@/app/types/interface';
 import Modal from './modal';
 import PassContainer from './passContainer';
+import checkLog from '@/lib/checkLog';
 
 import '../style/page.scss';
 
@@ -87,6 +88,11 @@ const Data = () => {
 
     async function addPassword(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
+        if(!checkLog()){
+            window.location.reload();
+            return;
+        } 
 
         if(newAccount === '' || newPass === '') return;
 

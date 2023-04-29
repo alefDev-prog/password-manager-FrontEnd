@@ -9,26 +9,12 @@ const Nav = () => {
         document.cookie = "logged_in=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     }
 
-    async function logOut () {
-        try {
-            const token = sessionStorage.getItem('jwt');
-            const resp = await fetch(`/api/logout`,{
-                method:"GET",
-                credentials:"include",
-                headers: {
-                    "Content-type": "application/json",
-                    "authorization": `Bearer ${token}`
-                },
-            });
-            if(resp.status == 200) {
-                localStorage.clear();
-                clearCookie();
-                window.location.reload();
-            }
-
-        } catch(e) {
-            console.log(e);
-        }
+    function logOut () {
+        
+        localStorage.clear();
+        clearCookie();
+        window.location.reload();
+          
     }
 
     return (
