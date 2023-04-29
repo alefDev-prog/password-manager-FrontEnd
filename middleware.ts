@@ -6,6 +6,7 @@ export function middleware(request: any) {
 
     const cookies = cookie.parse(request.headers.cookie || ''); // parse cookies from request headers
     const loggedInCookie = cookies.logged_in;
+    console.log(loggedInCookie);
 
     const {origin} = request.nextUrl;
     
