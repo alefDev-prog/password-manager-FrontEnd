@@ -3,9 +3,8 @@ import cookie from 'cookie';
 
 
 export function middleware(request: any) {
-
-    const cookies = cookie.parse(request.headers.cookie || ''); // parse cookies from request headers
-    const loggedInCookie = cookies.logged_in;
+    
+    const loggedInCookie = request.cookies.get('logged_in')?.value;
     console.log(loggedInCookie);
 
     const {origin} = request.nextUrl;
