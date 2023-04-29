@@ -58,8 +58,9 @@ const Login = () => {
                 setPasswordMessage("Username or password invalid");
             }
             if(resp.ok) {
-                const id = (await resp.json());
-                sessionStorage.setItem('loggedIn', 'true');
+                const {accesstoken, id} = (await resp.json());
+                
+                sessionStorage.setItem('jwt', accesstoken);
                 sessionStorage.setItem('userId', id);
                 //test
                 //window.location.reload();

@@ -40,13 +40,16 @@ const Data = () => {
     
 
     async function getInfo(id: string) {
+        
         try {
+            const token = sessionStorage.getItem('jwt');
             setLoading(true);
             const resp = await fetch(`api/data?id=${id}`, {
                 method: "GET",
                 credentials:"include",
                 headers: {
                     "Content-type": "application/json",
+                    "authorization": `Bearer ${token}`
                 },
                
                 
@@ -88,6 +91,7 @@ const Data = () => {
         if(newAccount === '' || newPass === '') return;
 
         const userId = sessionStorage.getItem('userId');
+        const token = sessionStorage.getItem('jwt');
         
         try {
             const resp = await fetch(`/api/add`, {
@@ -95,6 +99,7 @@ const Data = () => {
                 credentials: "include",
                 headers: {
                     "Content-type": "application/json",
+                    "authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     newAccount, newPass, userId
