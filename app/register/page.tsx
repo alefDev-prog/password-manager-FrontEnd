@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 
 import { useState } from 'react';
+import Cookies from 'js-cookie';
 const Register = () => {
 
     const [username, setUsername] = useState('');
@@ -35,7 +36,7 @@ const Register = () => {
         
         try {
             
-            const resp = await fetch(`https://password-manager-backend-4mqx.onrender.com/register`,{
+            const resp = await fetch(`/api/register`,{
                 method:"POST",
                 credentials:"include",
                 headers: {
@@ -54,9 +55,11 @@ const Register = () => {
             if(resp.ok) {
                 const {accesstoken, id} = (await resp.json());
                 
-                sessionStorage.setItem('jwt', accesstoken);
-                sessionStorage.setItem('userId', id);
-                //window.location.reload();
+                localStorage.setItem('jwt', accesstoken);
+                localStorage.setItem('userId', id);
+                //expires in 15 mins
+                Cookies.set('logged_in', 'true', {expires: 0.01041666666})
+                window.location.reload();
             }
 
 

@@ -16,7 +16,7 @@ const Nav = () => {
                 },
             });
             if(resp.status == 200) {
-                sessionStorage.clear();
+                localStorage.clear();
                 window.location.reload();
             }
 

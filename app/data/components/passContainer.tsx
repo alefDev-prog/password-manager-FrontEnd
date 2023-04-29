@@ -18,9 +18,9 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
 
         setOpenPassword(true);
 
-        const userId = sessionStorage.getItem('userId');
+        const userId = localStorage.getItem('userId');
         const accountId = obj._id;
-        const token = sessionStorage.getItem('jwt');
+        const token = localStorage.getItem('jwt');
 
         const resp = await fetch(`/api/getpass`, {
             method: "POST",
@@ -41,13 +41,13 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
         
         
         handleClose();
-        const userId = sessionStorage.getItem('userId');
+        const userId = localStorage.getItem('userId');
         const accountId = obj._id;
         
 
         
         try {
-            const token = sessionStorage.getItem('jwt');
+            const token = localStorage.getItem('jwt');
             const resp = await fetch(`api/delete`, {
                 method: "DELETE",
                 credentials: "include",

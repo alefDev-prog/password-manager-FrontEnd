@@ -34,15 +34,15 @@ const Data = () => {
 
     useEffect(()=> {
 
-        const id = sessionStorage.getItem('userId');
+        const id = localStorage.getItem('userId');
         typeof id == "string" && getInfo(id);
     },[])
     
 
     async function getInfo(id: string) {
-        
+
         try {
-            const token = sessionStorage.getItem('jwt');
+            const token = localStorage.getItem('jwt');
             setLoading(true);
             const resp = await fetch(`api/data?id=${id}`, {
                 method: "GET",
@@ -90,8 +90,8 @@ const Data = () => {
 
         if(newAccount === '' || newPass === '') return;
 
-        const userId = sessionStorage.getItem('userId');
-        const token = sessionStorage.getItem('jwt');
+        const userId = localStorage.getItem('userId');
+        const token = localStorage.getItem('jwt');
         
         try {
             const resp = await fetch(`/api/add`, {

@@ -3,6 +3,7 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import './page.scss';
+import Cookies from "js-cookie";
 
 
 
@@ -60,10 +61,11 @@ const Login = () => {
             if(resp.ok) {
                 const {accesstoken, id} = (await resp.json());
                 
-                sessionStorage.setItem('jwt', accesstoken);
-                sessionStorage.setItem('userId', id);
-                //test
-                //window.location.reload();
+                localStorage.setItem('jwt', accesstoken);
+                localStorage.setItem('userId', id);
+                //expires in 15 mins
+                Cookies.set('logged_in', 'true', {expires: 0.01041666666})
+                window.location.reload();
 
                 
 
