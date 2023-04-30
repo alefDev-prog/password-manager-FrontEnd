@@ -2,14 +2,15 @@
 import React, { FormEvent, use} from 'react';
 import Link from 'next/link';
 import { useEffect } from 'react';
-
-
 import { useState } from 'react';
 import Cookies from 'js-cookie';
+import Loading from '../global-components/loading';
+
 const Register = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
     const [usernameMessage, setUsernameMessage] = useState('Required');
     const [passwordMessage, setPasswordMessage] = useState('Required');
 
@@ -35,7 +36,7 @@ const Register = () => {
         
         
         try {
-            
+            setLoading(true);    
             const resp = await fetch(`/api/register`,{
                 method:"POST",
                 credentials:"include",
@@ -63,14 +64,18 @@ const Register = () => {
             }
 
 
-
+            setLoading(false);
         } catch(e) {
+            setLoading(false);
             console.log(e);
         }
         
 
     };
 
+    if (loading) return (
+        <Loading />
+    )
 
     return (
         <main className="auth-wrapper">

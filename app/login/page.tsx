@@ -4,6 +4,7 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import './page.scss';
 import Cookies from "js-cookie";
+import Loading from "../global-components/loading";
 
 
 
@@ -13,6 +14,7 @@ const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
 
     const [usernameMessage, setUsernameMessage] = useState('Required');
@@ -42,6 +44,7 @@ const Login = () => {
         
 
        try {
+            setLoading(true);
             const resp = await fetch('/api/login',{
                 method:"POST",
                 credentials:"include",
@@ -68,14 +71,19 @@ const Login = () => {
                 window.location.reload();
 
                 
-
+                setLoading(false);
             }
         } catch(e) {
             console.log(e);
+            setLoading(false);
         }
 
 
     }
+
+    if(loading) return (
+        <Loading />
+    )
 
 
     return (

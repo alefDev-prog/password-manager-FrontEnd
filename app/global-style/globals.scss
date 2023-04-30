@@ -1,5 +1,7 @@
 @import '_mixins.scss';
 @import '_variables.scss';
+@import '_animations.scss';
+
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap');
 
@@ -48,6 +50,17 @@ input {
   border-bottom-right-radius: 10px;
 }
 
+
+#loading-spinner {
+        margin:auto;
+        font-size: 4em;
+        color: $pinkColor;
+        transform-origin: 48% 50%;
+        animation-name: loading-animation;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+}
 
 
 .auth-wrapper {

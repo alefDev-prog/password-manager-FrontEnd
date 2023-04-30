@@ -99,10 +99,6 @@
 
 #all-pass-wrapper {
     @include flex(row, wrap);
-
-    @media screen and (min-width: 410px) {
-        justify-content: center;
-    }
     
     .pass-container {
         background-color: white;
@@ -116,6 +112,13 @@
         .account-name {
             font-size: 1.5em;
         }
+    }
+}
+
+@media screen and (min-width: 410px) {
+
+    #all-pass-wrapper {
+        justify-content: center;
     }
 }
 
