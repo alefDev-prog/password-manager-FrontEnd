@@ -47,10 +47,19 @@ const Register = () => {
                     username, password
                 }),
             });
+
+            if(!resp.ok){
+                setLoading(false);
+
+                if(resp.status == 409) {
+                    setUsernameMessage('Username already taken');
+                }
+                else {
+                    setPasswordMessage('Server error');
+                }
+            } 
             
-            if(resp.status == 409) {
-                setUsernameMessage('Username already taken');
-            }
+            
             
             
             if(resp.ok) {

@@ -60,6 +60,7 @@ const Login = () => {
             //test
             if(!resp.ok) {
                 setPasswordMessage("Username or password invalid");
+                setLoading(false);
             }
             if(resp.ok) {
                 const {accesstoken, id} = (await resp.json());
