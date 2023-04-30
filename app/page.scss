@@ -4,28 +4,31 @@
 
 
 .main {
-  display: flex;
-  flex-direction: column;
+  @include flex(column, nowrap);
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
-  height: 100vh;
+  height: 100%;
+
+  
 
   #main-wrapper  {
     @include flex(column, nowrap);
     justify-content: center;
     align-items: center;
+    margin-top: 35%;
 
    
 
     #title {
-      font-size: 3.5em;
+      font-size: 5em;
       color: $pinkColor;
+      text-align: center;
     }
 
     #description {
       margin-top: 1em;
       font-size: 1.5em;
+      text-align: center;
     }
 
     #button-wrapper {
@@ -39,9 +42,10 @@
       .button {
         background-color: $pinkColor;
         color: white;
-        width:6em;
-        height: 3em;
-        border-radius:0.5em;
+        width:8em;
+        height: 4em;
+        font-size: 1em;
+        border-radius: $btn-border-radius;
         @include flex(column, nowrap);
         justify-content: center;
         align-items: center;
@@ -56,3 +60,4 @@
 
   }
 }
+

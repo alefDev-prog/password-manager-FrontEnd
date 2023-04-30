@@ -18,8 +18,8 @@ html {
 html,
 body {
   background-color: $backColor;
-  max-width: 100vw;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   overflow-x: hidden;
   
 
@@ -87,7 +87,7 @@ input {
     .auth-message {
       align-self: flex-start;
       color: $pinkColor;
-      margin-top: -3.5em;
+      margin-top: -3em;
       margin-left: 0.5em;     
       height: 1ch;
     }
