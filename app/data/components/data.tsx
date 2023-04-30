@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FormEvent, useState, useEffect } from 'react';
-import { infoUser } from '@/app/types/interface';
+import { infoUser } from '@/app/interfaces/interface';
 import Modal from './modal';
 import PassContainer from './passContainer';
 import checkLog from '@/lib/checkLog';

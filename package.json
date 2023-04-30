@@ -1,7 +1,9 @@
 {
-  "name": "first_next",
+  "name": "password_manager",
   "version": "0.1.0",
   "private": true,
+  "author": "Allan Efendic",
+  "description": "An app where you can securely store your passwords",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

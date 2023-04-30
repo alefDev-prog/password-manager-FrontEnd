@@ -4,35 +4,48 @@ const nextConfig = {
     appDir: true,
   },
 
+ 
+
   async rewrites() {
     return [
-      {
+      { 
         source: "/api/login",
-        destination: "https://password-manager-backend-4mqx.onrender.com/login",
+        destination: `${process.env.BACKEND_URL}/login`
+      
       },
       {
         source: "/api/data",
-        destination: "https://password-manager-backend-4mqx.onrender.com/data",
+        destination: `${process.env.BACKEND_URL}/data`
+      
       },
       {
         source: "/api/add",
-        destination: "https://password-manager-backend-4mqx.onrender.com/add",
+        destination:`${process.env.BACKEND_URL}/add`
+      
       },
       {
         source: "/api/logout",
-        destination: "https://password-manager-backend-4mqx.onrender.com/logout",
+        destination: `${process.env.BACKEND_URL}/logout`
+
+
       },
       {
         source: "/api/delete",
-        destination: "https://password-manager-backend-4mqx.onrender.com/delete",
+        destination: `${process.env.BACKEND_URL}/delete`
+
+
       },
       {
         source: "/api/getpass",
-        destination: "https://password-manager-backend-4mqx.onrender.com/getpass",
+        destination: `${process.env.BACKEND_URL}/getpass`
+        
+        
       },
       {
         source: "/api/register",
-        destination: "https://password-manager-backend-4mqx.onrender.com/register",
+        destination: `${process.env.BACKEND_URL}/register`
+        
+        
       },
     ];
   }
