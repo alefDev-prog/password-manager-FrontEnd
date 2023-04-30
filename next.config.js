@@ -4,11 +4,38 @@ const nextConfig = {
     appDir: true,
   },
 
-  env: {
-    BACKEND_URL: process.env.BACKEND_URL
-  },
-
-
+  async rewrites() {
+    return [
+      {
+        source: "/api/login",
+        destination: "https://password-manager-backend-4mqx.onrender.com/login",
+      },
+      {
+        source: "/api/data",
+        destination: "https://password-manager-backend-4mqx.onrender.com/data",
+      },
+      {
+        source: "/api/add",
+        destination: "https://password-manager-backend-4mqx.onrender.com/add",
+      },
+      {
+        source: "/api/logout",
+        destination: "https://password-manager-backend-4mqx.onrender.com/logout",
+      },
+      {
+        source: "/api/delete",
+        destination: "https://password-manager-backend-4mqx.onrender.com/delete",
+      },
+      {
+        source: "/api/getpass",
+        destination: "https://password-manager-backend-4mqx.onrender.com/getpass",
+      },
+      {
+        source: "/api/register",
+        destination: "https://password-manager-backend-4mqx.onrender.com/register",
+      },
+    ];
+  }
 }
 
 module.exports = nextConfig

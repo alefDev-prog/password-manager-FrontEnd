@@ -28,7 +28,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
         const accountId = obj._id;
         const token = localStorage.getItem('jwt');
 
-        const resp = await fetch(`${process.env.BACKEND_URL}/getpass`, {
+        const resp = await fetch(`/api/getpass`, {
             method: "POST",
             credentials: "include",
             headers: {
@@ -58,7 +58,7 @@ const PassContainer = ({obj}: {obj: accountObj}) => {
         
         try {
             const token = localStorage.getItem('jwt');
-            const resp = await fetch(`${process.env.BACKEND_URL}/delete`, {
+            const resp = await fetch(`/api/delete`, {
                 method: "DELETE",
                 credentials: "include",
                 headers: {

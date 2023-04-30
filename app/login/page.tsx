@@ -45,7 +45,7 @@ const Login = () => {
 
        try {
             setLoading(true);
-            const resp = await fetch(`${process.env.BACKEND_URL}/login`,{
+            const resp = await fetch(`/api/login`,{
                 method:"POST",
                 credentials:"include",
                 headers: {
