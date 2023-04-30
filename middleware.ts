@@ -13,7 +13,7 @@ export function middleware(request: any) {
         return NextResponse.redirect(origin+'/data');
     }
 
-    if(loggedInCookie && request.url == origin) {
+    if(loggedInCookie && !request.url.includes('data')) {
         return NextResponse.redirect(origin+'/data');
     }
 
