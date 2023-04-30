@@ -99,6 +99,10 @@
 
 #all-pass-wrapper {
     @include flex(row, wrap);
+
+    @media screen and (min-width: 410px) {
+        justify-content: center;
+    }
     
     .pass-container {
         background-color: white;
