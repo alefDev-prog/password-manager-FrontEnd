@@ -71,11 +71,11 @@ const Login = () => {
                 window.location.reload();
 
                 
-                setLoading(false);
+                
             }
         } catch(e) {
             console.log(e);
-            setLoading(false);
+           
         }
 
 

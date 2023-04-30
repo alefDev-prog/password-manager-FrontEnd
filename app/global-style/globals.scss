@@ -50,17 +50,27 @@ input {
   border-bottom-right-radius: 10px;
 }
 
+/* The loading page */
 
-#loading-spinner {
-        margin:auto;
-        font-size: 4em;
-        color: $pinkColor;
-        transform-origin: 48% 50%;
-        animation-name: loading-animation;
-        animation-duration: 1s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
+#loading-page-wrapper {
+  @include flex(row, nowrap);
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  #loading-spinner {
+    margin:auto;
+    font-size: 4em;
+    color: $pinkColor;
+    transform-origin: 48% 50%;
+    animation-name: loading-animation;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
 }
+
 
 
 .auth-wrapper {

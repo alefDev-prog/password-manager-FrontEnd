@@ -5,6 +5,9 @@ import '../global-style/globals.scss';
 export default function Loading() {
 
     return (
-        <FontAwesomeIcon icon={faSpinner} id="loading-spinner"></FontAwesomeIcon>
+        <div id="loading-page-wrapper">
+            <FontAwesomeIcon icon={faSpinner} id="loading-spinner"></FontAwesomeIcon>
+        </div>
+        
     )
 }
