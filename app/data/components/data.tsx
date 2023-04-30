@@ -100,7 +100,7 @@ const Data = () => {
         const token = localStorage.getItem('jwt');
         
         try {
-            const resp = await fetch(`/api/add`, {
+            const resp = await fetch(`${process.env.BACKEND_URL}/add`, {
                 method: "POST",
                 credentials: "include",
                 headers: {

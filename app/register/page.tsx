@@ -37,7 +37,7 @@ const Register = () => {
         
         try {
             setLoading(true);    
-            const resp = await fetch(`/api/register`,{
+            const resp = await fetch(`${process.env.BACKEND_URL}/register`,{
                 method:"POST",
                 credentials:"include",
                 headers: {
