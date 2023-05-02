@@ -1,26 +1,32 @@
 'use client';
-import React, { FormEvent, use} from 'react';
+import React, { FormEvent, use, useReducer} from 'react';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
 import Loading from '../global-components/loading';
+import { reducer, initialValues, ActionKinds } from './components/reducer';
+
 
 const Register = () => {
 
+    const [values, dispatch] = useReducer(reducer, initialValues)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [checkPassword, setCheckPassword] = useState('');
     const [loading, setLoading] = useState(false);
-    const [usernameMessage, setUsernameMessage] = useState('Required');
-    const [passwordMessage, setPasswordMessage] = useState('Required');
+    
 
 
     useEffect(() => {
-        if(password == '') setPasswordMessage('Required');
-        else setPasswordMessage('');
-        if(username == '') setUsernameMessage('Required');
-        else setUsernameMessage('');
-    }, [password, username])
+        console.log(values);
+        if(password == '') dispatch({type: ActionKinds.SET_PASSWORD_MESSAGE , payload: 'Required'});
+        else dispatch({type: ActionKinds.SET_PASSWORD_MESSAGE , payload: ''});
+        if(username == '') dispatch({type: ActionKinds.SET_USERNAME_MESSAGE , payload: 'Required'});
+        else dispatch({type: ActionKinds.SET_USERNAME_MESSAGE , payload: ''});
+        if(checkPassword == '') dispatch({type: ActionKinds.SET_CHECK_PASSWORD_MESSAGE , payload: 'Required'});
+        else dispatch({type: ActionKinds.SET_CHECK_PASSWORD_MESSAGE , payload: ''});
+    }, [password, username, checkPassword])
 
 
     function setUser(e: any): void {
@@ -29,10 +35,17 @@ const Register = () => {
     function setPass(e: any):void {
         setPassword(e.target.value);
     }
+    function setCheckPass(e: any):void {
+        setCheckPassword(e.target.value);
+    }
 
     async function sumbitFunc(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
         if(username === null || username == '') return;
+        if(checkPassword !== password) {
+            dispatch({type: ActionKinds.SET_CHECK_PASSWORD_MESSAGE , payload: 'Passwords are not matching'})
+            return;
+        }
         
         
         try {
@@ -52,10 +65,12 @@ const Register = () => {
                 setLoading(false);
 
                 if(resp.status == 409) {
-                    setUsernameMessage('Username already taken');
+                    dispatch({type: ActionKinds.SET_USERNAME_MESSAGE , payload: 'Username already taken'});
+                   
                 }
                 else {
-                    setPasswordMessage('Server error');
+                    dispatch({type: ActionKinds.SET_USERNAME_MESSAGE , payload: 'Server error'});
+                   
                 }
             } 
             
@@ -91,10 +106,13 @@ const Register = () => {
                 <h1 className="auth-header">Register</h1>
                 <h2 className="auth-description">Username</h2>
                 <input type="text" name="username" onChange={setUser} placeholder='username'/>
-                <p className='auth-message'>{usernameMessage}</p>
+                {values && <p className='auth-message'>{values.usernameMessage}</p>}
                 <h2 className="auth-description">Password</h2>
                 <input type="password" name="password" placeholder="password" onChange={setPass}/>
-                <p className='auth-message'>{passwordMessage}</p>
+                {values && <p className='auth-message'>{values.passwordMessage}</p>}
+                <h2 className="auth-description">Check password</h2>
+                <input type="password" name="password" placeholder="check password" onChange={setCheckPass}/>
+                {values && <p className='auth-message'>{values.checkPasswordMessage}</p>}
                 <button type="submit">Submit</button>
                 <p id="link"><Link href="/login">Login</Link></p>
             </form>

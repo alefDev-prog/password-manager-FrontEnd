@@ -1,7 +1,7 @@
 "use client";
 
 import '../style/page.scss';
-import { accountObj } from '@/app/interfaces/interface';
+import type { accountObj } from '@/interface.d.ts';
 import { useState } from 'react';
 import Modal from './modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

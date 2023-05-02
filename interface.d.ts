@@ -14,3 +14,12 @@ export interface accountObj {
     _id?: string
 
 }
+
+export interface registerInitial {
+    
+
+    usernameMessage: string;
+    passwordMessage: string;
+    checkPasswordMessage: string;
+
+}
