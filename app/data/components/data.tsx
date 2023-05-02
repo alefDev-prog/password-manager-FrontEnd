@@ -5,6 +5,7 @@ import { infoUser } from '@/app/interfaces/interface';
 import Modal from './modal';
 import PassContainer from './passContainer';
 import checkLog from '@/lib/checkLog';
+import Skeleton from './skeleton';
 
 import '../style/page.scss';
 
@@ -122,9 +123,11 @@ const Data = () => {
 
     if(loading) {
         return (
-            <div>
-                Loading...
+            <div className='all-pass-wrapper'>
+                
+                <Skeleton></Skeleton>
             </div>
+            
         )
     }
     
@@ -144,7 +147,7 @@ const Data = () => {
                         
                     </div>
                 </Modal>
-                <div id="all-pass-wrapper">
+                <div className="all-pass-wrapper">
                     <div className="pass-container" onClick={handleShow}>
                     <FontAwesomeIcon icon={faPlus}/>
                     </div>

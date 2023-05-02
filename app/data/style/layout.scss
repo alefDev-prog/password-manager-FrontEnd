@@ -22,29 +22,46 @@
 
 
         #logout {
+            @include flex(row, wrap);
+            align-items: center;
             position: absolute;
-            top: 1em;
-            right: 3em;
+            top: 0.4em;
+            right: 5em;
             color:white;
             background-color: $pinkColor;
             border-radius: $btn-border-radius;
-            width: 5em;
-            height: 2em;
+            width: 6em;
+            height: 3.5em;
             text-align: center;
             font-size: 1.3em;
             cursor: pointer;
-            margin-left: 5em;
+            
+
+            p {
+                margin: auto;
+            }
+            
         }
 
     }
 
     @media screen and (max-width: 550px) {
 
-        .nav-bar #logout {
-            position: unset;
-            margin-top: 1em;
-            margin-left: -2.5em;
+        .nav-bar {
+            @include flex(column, nowrap);
+            align-items: center;
+            margin-left: -2.2em;
+            #logout {
+                position: unset;
+                margin-top: 1em;
+               
+                
+            }
+
+
         }
+
+        
     }
 
 

@@ -97,7 +97,7 @@
 }
 
 
-#all-pass-wrapper {
+.all-pass-wrapper {
     @include flex(row, wrap);
     
     .pass-container {
@@ -110,21 +110,28 @@
         cursor: pointer;
 
         .account-name {
-            font-size: 1.5em;
+            font-size:  $font-size-data;
         }
     }
 }
 
 @media screen and (max-width: 410px) {
 
-    #all-pass-wrapper {
+    .all-pass-wrapper {
         justify-content: center;
-    }
-
-    .pass-container {
-        width:90%;
+        
+        .pass-container {
+            width: 90vw;
+        }
     }
 }
 
+//Loading skeleton 
 
+.skeleton {
+    width: 80%;
+    height: $font-size-data;
+    animation: skeleton-animation 1s linear infinite alternate;
+    border-radius: 3px;
+}
 
