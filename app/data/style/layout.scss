@@ -10,19 +10,19 @@
         width: 100%;
         background-color: white;
         padding:2em;
+        position: relative;
         
-        @include flex(column, wrap);
-        align-items: center;
-        justify-content: center;
 
         #data-title {
+            width: 100%;
+            text-align: center;
             margin-left: -2.5em;
            
         }
 
 
         #logout {
-            position: fixed;
+            position: absolute;
             right: 2em;
             color:white;
             background-color: $pinkColor;

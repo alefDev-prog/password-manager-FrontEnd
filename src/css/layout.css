@@ -1,0 +1,32 @@
+.data-layout {
+  height: 100vh;
+}
+.data-layout .nav-bar {
+  width: 100%;
+  background-color: white;
+  padding: 2em;
+  position: relative;
+}
+.data-layout .nav-bar #data-title {
+  width: 100%;
+  text-align: center;
+  margin-left: -2.5em;
+}
+.data-layout .nav-bar #logout {
+  position: absolute;
+  right: 2em;
+  color: white;
+  background-color: rgb(255, 0, 76);
+  border-radius: 5px;
+  padding: 1.2em 1.5em;
+  font-size: 1.3em;
+  cursor: pointer;
+  margin-left: 5em;
+}
+@media screen and (max-width: 550px) {
+  .data-layout .nav-bar #logout {
+    position: unset;
+    margin-top: 1em;
+    margin-left: -2.5em;
+  }
+}/*# sourceMappingURL=layout.css.map */

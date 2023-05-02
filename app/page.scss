@@ -3,19 +3,26 @@
 @import './global-style/globals';
 
 
+body {
+  overflow: hidden;
+}
+
+
 .main {
   @include flex(column, nowrap);
   justify-content: space-between;
   align-items: center;
+  justify-content: center;
   height: 100%;
 
   
 
   #main-wrapper  {
+    margin-top: -5%;
     @include flex(column, nowrap);
     justify-content: center;
     align-items: center;
-    margin-top: 35%;
+    
 
    
 
