@@ -124,8 +124,13 @@ const Data = () => {
     if(loading) {
         return (
             <div className='all-pass-wrapper'>
-                
-                <Skeleton></Skeleton>
+                {(()=> {
+                    const skeletons = [];
+                    for (let i = 0; i < 5; i++) {
+                        skeletons.push(<Skeleton key={i}/>)
+                    }
+                    return skeletons
+                })()}
             </div>
             
         )
