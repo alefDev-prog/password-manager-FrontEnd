@@ -6,7 +6,7 @@ import Modal from './modal';
 import PassContainer from './passContainer';
 import checkLog from '@/lib/checkLog';
 import Skeleton from './skeleton';
-
+//style
 import '../style/page.scss';
 
 
