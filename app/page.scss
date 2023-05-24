@@ -5,6 +5,9 @@
 
 body {
   overflow: hidden;
+  background: radial-gradient(circle, $backColor, rgba(255, 0, 76, 0.5));
+  background-size: 300% 300%;
+  background-position: center;
 }
 
 
