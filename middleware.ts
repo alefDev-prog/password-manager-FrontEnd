@@ -6,7 +6,6 @@ export function middleware(request: any) {
     
     
     const loggedInCookie = request.cookies.get('logged_in')?.value;
-    console.log(loggedInCookie);
 
     const {origin} = request.nextUrl;
     

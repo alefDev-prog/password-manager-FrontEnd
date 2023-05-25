@@ -3,14 +3,6 @@
 @import './global-style/globals';
 
 
-body {
-  overflow: hidden;
-  background: radial-gradient(circle, $backColor, rgba(255, 0, 76, 0.5));
-  background-size: 300% 300%;
-  background-position: center;
-}
-
-
 .main {
   @include flex(column, nowrap);
   justify-content: space-between;
@@ -35,10 +27,47 @@ body {
       text-align: center;
     }
 
-    #description {
-      margin-top: 1em;
-      font-size: 1.5em;
-      text-align: center;
+    #description-section {
+      @include flex(row, nowrap);
+      background-color: white;
+      padding:4em;
+      margin-top: 2em;
+      border-radius: 2em;
+      margin-left: 2em;
+      margin-right: 2em;
+
+      #image-container {
+        position: relative;
+        align-self: center;
+        max-width: 300px;
+        max-height: 200px;
+        min-width: 300px;
+        min-height: 200px;
+      }
+
+      @media screen and (max-width:"650px") {
+        #image-container {
+          min-width: 200px;
+          min-height: 150px;
+          max-width: 200px;
+          max-height: 150px; 
+        }
+      }
+
+      article {
+        margin-right: 2em;
+        max-width: 300px;
+
+        #description {
+          font-size: 1.5em;
+          text-align: left;
+        }
+        p {
+          margin-top:1ch;
+          font-size: 1.5em;
+        }
+      }
+      
     }
 
     #button-wrapper {
@@ -52,22 +81,63 @@ body {
       .button {
         background-color: $pinkColor;
         color: white;
-        width:8em;
-        height: 4em;
-        font-size: 1em;
+        width:6em;
+        height: 3em;
+        font-size: 1.5em;
         border-radius: $btn-border-radius;
         @include flex(column, nowrap);
         justify-content: center;
         align-items: center;
+        transition: 0.25s;
       }
 
-      
-
+      .button:hover {
+        background-color: white;
+        color:$pinkColor;
+      }
     }
-
-    
-
-
   }
 }
+
+//For mobile use
+@media screen and (max-width: "530px") {
+  .main{
+    #main-wrapper{
+
+      #title {
+        font-size: 3.7em;
+      }
+
+      #description-section {
+        flex-direction: column;
+
+        #image-container{
+          min-width: 250px;
+          min-height: 180px;
+          max-width: 250px;
+          max-height: 180px; 
+          margin-top: 1em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: "325px") {
+  .main{
+    #main-wrapper{
+
+      #title {
+        font-size: 3em;
+      }
+
+      #description-section {
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
 
