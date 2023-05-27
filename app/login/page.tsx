@@ -84,18 +84,18 @@ const Login = () => {
     }
 
     if(loading) return (
-        <>
-            <Head>
-                <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1" />
-            </Head>
-            <Loading />
-        </>
+       
+        <Loading />
+        
    
     )
 
 
     return (
         <main className="auth-wrapper">
+            <Head>
+                <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1, user-scalable=no" />
+            </Head>
             <form onSubmit={submitFunc} className="auth-form">
                 <Link href="/"> <FontAwesomeIcon icon={faHouse} className="house-icon"/> </Link>
                 <h1 className="auth-header">Login</h1>
