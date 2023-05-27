@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import cookie from 'cookie';
 
 //redirect users if depending on their login status
 export function middleware(request: any) {
