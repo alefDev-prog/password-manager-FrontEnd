@@ -6,7 +6,6 @@ import { useState } from 'react';
 import Cookies from 'js-cookie';
 import Loading from '../global-components/loading';
 import { reducer, initialValues, ActionKinds } from './components/reducer';
-import Head from 'next/head';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
@@ -105,9 +104,6 @@ const Register = () => {
 
     return (
         <main className="auth-wrapper">
-            <Head>
-                <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1, user-scalable=no" />
-            </Head>
             <form onSubmit={sumbitFunc} className="auth-form">
                 <Link href="/"> <FontAwesomeIcon icon={faHouse} className="house-icon"/> </Link>
                 <h1 className="auth-header">Register</h1>

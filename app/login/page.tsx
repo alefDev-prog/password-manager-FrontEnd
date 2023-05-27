@@ -5,7 +5,6 @@ import Link from "next/link";
 import './page.scss';
 import Cookies from "js-cookie";
 import Loading from "../global-components/loading";
-import Head from 'next/head';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
@@ -45,7 +44,6 @@ const Login = () => {
     async function submitFunc(e:FormEvent<HTMLFormElement>) {
         e.preventDefault();
         
-
        try {
             setLoading(true);
             const resp = await fetch(`/api/login`,{
@@ -86,16 +84,12 @@ const Login = () => {
     if(loading) return (
        
         <Loading />
-        
-   
+    
     )
 
 
     return (
         <main className="auth-wrapper">
-            <Head>
-                <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1, user-scalable=no" />
-            </Head>
             <form onSubmit={submitFunc} className="auth-form">
                 <Link href="/"> <FontAwesomeIcon icon={faHouse} className="house-icon"/> </Link>
                 <h1 className="auth-header">Login</h1>
