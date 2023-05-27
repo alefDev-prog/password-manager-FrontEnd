@@ -1,10 +1,13 @@
 "use client";
 
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import './page.scss';
 import Cookies from "js-cookie";
 import Loading from "../global-components/loading";
+import Head from 'next/head';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -78,18 +81,23 @@ const Login = () => {
             console.log(e);
            
         }
-
-
     }
 
     if(loading) return (
-        <Loading />
+        <>
+            <Head>
+                <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1" />
+            </Head>
+            <Loading />
+        </>
+   
     )
 
 
     return (
         <main className="auth-wrapper">
             <form onSubmit={submitFunc} className="auth-form">
+                <Link href="/"> <FontAwesomeIcon icon={faHouse} className="house-icon"/> </Link>
                 <h1 className="auth-header">Login</h1>
                 <h2 className="auth-description">Username</h2>
                 <input type="text" name="username" onChange={setUser} placeholder="username"/>
@@ -106,6 +114,3 @@ const Login = () => {
 }
 
 export default Login;
-
-
-
