@@ -94,10 +94,10 @@ const Login = () => {
                 <Link href="/"> <FontAwesomeIcon icon={faHouse} className="house-icon"/> </Link>
                 <h1 className="auth-header">Login</h1>
                 <h2 className="auth-description">Username</h2>
-                <input type="text" name="username" onChange={setUser} placeholder="username"/>
+                <input type="text" name="username" onChange={setUser} placeholder="username" maxLength={15}/>
                 <p className='auth-message'>{usernameMessage}</p>
                 <h2 className="auth-description">Password</h2>
-                <input type="password" name="password" placeholder="password" onChange={setPass}/>
+                <input type="password" name="password" placeholder="password" onChange={setPass} maxLength={20}/>
                 <p className='auth-message'>{passwordMessage}</p>
                 <button type="submit">Submit</button>
                 <p id="link"><Link href="/register">Register</Link></p>

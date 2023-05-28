@@ -19,6 +19,7 @@ const Home = () =>{
               src="/images/Password.jpg"
               alt="Password"
               fill={true}
+              loading="eager"
               priority={true}
             />
           </div>
@@ -32,8 +33,6 @@ const Home = () =>{
               <div className='button'>Log in</div>
             </Link>
           </section>
-        
-        
       </div>
     </main>
   )

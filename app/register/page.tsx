@@ -108,13 +108,13 @@ const Register = () => {
                 <Link href="/"> <FontAwesomeIcon icon={faHouse} className="house-icon"/> </Link>
                 <h1 className="auth-header">Register</h1>
                 <h2 className="auth-description">Username</h2>
-                <input type="text" name="username" onChange={setUser} placeholder='username'/>
+                <input type="text" name="username" onChange={setUser} placeholder='username' maxLength={15}/>
                 {values && <p className='auth-message'>{values.usernameMessage}</p>}
                 <h2 className="auth-description">Password</h2>
-                <input type="password" name="password" placeholder="password" onChange={setPass}/>
+                <input type="password" name="password" placeholder="password" onChange={setPass} maxLength={20}/>
                 {values && <p className='auth-message'>{values.passwordMessage}</p>}
                 <h2 className="auth-description">Check password</h2>
-                <input type="password" name="password" placeholder="check password" onChange={setCheckPass}/>
+                <input type="password" name="password" placeholder="check password" onChange={setCheckPass} maxLength={20}/>
                 {values && <p className='auth-message'>{values.checkPasswordMessage}</p>}
                 <button type="submit">Submit</button>
                 <p id="link"><Link href="/login">Login</Link></p>
