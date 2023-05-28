@@ -45,8 +45,12 @@ const Register = () => {
         e.preventDefault();
         if(username === null || username == '') return;
         if(checkPassword !== password) {
-            dispatch({type: ActionKinds.SET_CHECK_PASSWORD_MESSAGE , payload: 'Passwords are not matching'})
+            dispatch({type: ActionKinds.SET_CHECK_PASSWORD_MESSAGE , payload: 'Passwords are not matching'});
             return;
+        }
+        if(password.length < 7) {
+            dispatch({type: ActionKinds.SET_PASSWORD_MESSAGE, payload: 'Min 7 characters long'});
+            return
         }
         
         
